@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('branches', function (Blueprint $table) {
             $table->id();
-            $table->name();
-            $table->Location();
+            $table->string("name");
+            $table->string("Location");
             $table->timestamps();
         });
     }
