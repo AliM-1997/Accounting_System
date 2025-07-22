@@ -12,8 +12,29 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('payrolls', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        $table->id();
+        $table->unsignedBigInteger('employee_id');
+        
+        $table->string('employee_position')->default(0);
+
+        $table->decimal('basic_salary', 10, 2)->default(0);
+        $table->decimal('advanced_salary', 10, 2)->default(0);
+        $table->decimal('max_advanced_salary', 10, 2)->default(0);
+
+        $table->decimal('deductions', 10, 2)->default(0);
+        $table->decimal('discrepancy', 10, 2)->default(0);
+        $table->decimal('additions', 10, 2)->default(0);
+        $table->decimal('bonus', 10, 2)->default(0);
+
+        $table->integer('off_days')->default(0);
+        $table->integer('working_days')->default(0);
+
+        $table->decimal('current_expensis',10,2)->default(0);
+        $table->decimal('total_salary',10,2)->default(0);
+
+        $table->timestamps();
+
+        $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
         });
     }
 
