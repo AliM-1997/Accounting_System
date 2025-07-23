@@ -22,12 +22,12 @@ return new class extends Migration
 
             $table->string("type");
             $table->string("note")->nullable();
-            $table->unsignedBigInteger("done_by");
+            $table->unsignedBigInteger("employee_id");
 
             $table->timestamps();
 
             $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('cascade');
-            $table->foreign('done_by')->references('id')->on('employees')->onDelete('set null');
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('set null');
         });
     }
 
