@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('payrolls', function (Blueprint $table) {
         $table->id();
-        $table->unsignedBigInteger('employee_id');
+        $table->unsignedBigInteger('employees_id');
         
-        $table->string('employee_position')->default(0);
+        $table->string('employee_position')->nullable();
 
         $table->decimal('basic_salary', 10, 2)->default(0);
         $table->decimal('advanced_salary', 10, 2)->default(0);
@@ -34,7 +34,7 @@ return new class extends Migration
 
         $table->timestamps();
 
-        $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
+        $table->foreign('employees_id')->references('id')->on('employees')->onDelete('cascade');
         });
     }
 

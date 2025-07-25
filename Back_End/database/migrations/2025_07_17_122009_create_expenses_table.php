@@ -16,13 +16,14 @@ return new class extends Migration
             $table->id();
 
             $table->unsignedBigInteger("supplier_id");
+            $table->unsignedBigInteger("employee_id")->nullable();
 
             $table->decimal("amount_lbp", 10, 2)->default(0);
             $table->decimal("amount_usd", 10, 2)->default(0);
 
             $table->string("type");
             $table->string("note")->nullable();
-            $table->unsignedBigInteger("employee_id");
+            
 
             $table->timestamps();
 

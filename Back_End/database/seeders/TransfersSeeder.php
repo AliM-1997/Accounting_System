@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Transfers;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,6 @@ class TransfersSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Transfers::factory()->count(20)->create();
     }
 }

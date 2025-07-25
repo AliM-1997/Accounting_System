@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Branches;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,7 @@ class BranchesSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+            Branches::factory()->count(20)->create();
+
     }
 }
