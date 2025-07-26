@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Transfers;
 use App\Models\User;
+use Database\Factories\employee_adjustments;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -27,6 +29,9 @@ class DatabaseSeeder extends Seeder
         PayrollSeeder::class,
         ExpensesSeeder::class,
         CashEntriesSeeder::class,
+        TransfersSeeder::class,
+        SuppliersSeeder::class,
+        EmployeeAdjustmentsSeeder::class
     ]);
     }
 }

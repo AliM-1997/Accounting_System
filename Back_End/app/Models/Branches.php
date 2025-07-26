@@ -9,4 +9,5 @@ class Branches extends Model
 {
     /** @use HasFactory<\Database\Factories\BranchesFactory> */
     use HasFactory;
+    
 }

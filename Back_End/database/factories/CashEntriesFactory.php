@@ -6,7 +6,7 @@ use App\Models\Branches;
 use App\Models\Employees;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class Cash_EntriesFactory extends Factory
+class CashEntriesFactory extends Factory
 {
     public function definition(): array
     {
