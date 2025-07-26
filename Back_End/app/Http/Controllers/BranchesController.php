@@ -13,7 +13,8 @@ class BranchesController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Branches::all(), 200);
+
     }
 
     /**
@@ -28,16 +29,27 @@ class BranchesController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(StoreBranchesRequest $request)
-    {
-        //
-    }
+{
+    $validated = $request->validated();
+
+    $branch = Branches::create([
+        'name' => $validated['name'],
+        'location' => $validated['location'],
+    ]);
+
+    return response()->json([
+        'message' => 'Branch created successfully.',
+        'data' => $branch
+    ], 201);
+}
+
 
     /**
      * Display the specified resource.
      */
     public function show(Branches $branches)
     {
-        //
+        return response()->json($branches);
     }
 
     /**
@@ -53,14 +65,25 @@ class BranchesController extends Controller
      */
     public function update(UpdateBranchesRequest $request, Branches $branches)
     {
-        //
+        $validated = $request->validated();
+
+        $branches->update($validated);
+
+        return response()->json([
+            'message' => 'Branch updated successfully',
+            'branch'  => $branches,
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Branches $branches)
-    {
-        //
-    }
+{
+    $branches->delete();
+
+    return response()->json([
+        'message' => 'Branch deleted successfully',
+    ]);
+}
 }

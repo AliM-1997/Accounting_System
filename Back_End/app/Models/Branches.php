@@ -7,7 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Branches extends Model
 {
-    /** @use HasFactory<\Database\Factories\BranchesFactory> */
     use HasFactory;
-    
+
+    protected $fillable = [
+        'name',
+        'location',
+    ];
+
+    // Relationships (if you plan on using them later)
+    public function employees()
+    {
+        return $this->hasMany(Employees::class);
+    }
+
+    public function cashEntries()
+    {
+        return $this->hasMany(CashEntries::class);
+    }
 }
